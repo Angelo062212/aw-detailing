@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Dudes — Love in Every Detail</title>
+<meta name="description" content="Detail Dudes — mobile and in-studio luxury car detailing. Book your detail online.">
+<link rel="canonical" href="https://awdetaildudes.com/">
+<meta property="og:title" content="Detail Dudes — Love in Every Detail">
+<meta property="og:description" content="Mobile and in-studio luxury car detailing. Book your detail online.">
+<meta property="og:url" content="https://awdetaildudes.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Detail Dudes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Detail Dudes — Love in Every Detail">
+<meta name="twitter:description" content="Mobile and in-studio luxury car detailing. Book your detail online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #0a0a0b;
+    --panel: #131315;
+    --panel-2: #18181b;
+    --line: #232327;
+    --chrome-100: #f4f3ef;
+    --chrome-70: #b9b8b4;
+    --chrome-45: #7e7d7a;
+    --brass: #b9956a;
+    --brass-soft: rgba(185,149,106,0.16);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--black);
+    color:var(--chrome-100);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{ background:var(--brass); color:#0a0a0b; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    line-height:1.04;
+  }
+
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px; height:1px;
+    background:var(--brass);
+    display:inline-block;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0;
+    z-index:100;
+    padding:26px 0;
+    transition:padding .35s ease, background .35s ease, border-color .35s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    padding:16px 0;
+    background:rgba(10,10,11,0.86);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:20px;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+  .logo span{ color:var(--brass); }
+  .nav-links{
+    display:flex; gap:40px;
+    font-size:13px;
+    letter-spacing:0.03em;
+    color:var(--chrome-70);
+  }
+  .nav-links a{ position:relative; padding-bottom:3px; transition:color .25s; }
+  .nav-links a:hover{ color:var(--chrome-100); }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--brass); transition:width .25s;
+  }
+  .nav-links a:hover::after{ width:100%; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px;
+    font-family:'Inter', sans-serif;
+    font-size:13px; font-weight:500; letter-spacing:0.03em;
+    border-radius:2px;
+    border:1px solid var(--brass);
+    color:var(--black);
+    background:var(--brass);
+    cursor:pointer;
+    transition:background .25s, color .25s, transform .25s, box-shadow .25s;
+  }
+  .btn:hover{
+    background:transparent;
+    color:var(--chrome-100);
+    box-shadow:0 0 0 1px var(--brass) inset;
+  }
+  .btn-ghost{
+    background:transparent; color:var(--chrome-100); border:1px solid var(--line);
+  }
+  .btn-ghost:hover{
+    border-color:var(--brass); color:var(--brass); background:transparent; box-shadow:none;
+  }
+  .nav-cta{ display:none; }
+  @media(min-width:880px){ .nav-cta{ display:inline-flex; } }
+
+  /* ---------- CAR GRAPHIC (signature element) ---------- */
+  .car-stage{
+    position:relative;
+    width:100%;
+  }
+  .car-art{
+    width:100%; height:auto; display:block;
+    filter:drop-shadow(0 30px 60px rgba(0,0,0,0.65));
+  }
+  .car-reflection{
+    width:100%; height:auto; display:block;
+    transform:scaleY(-1);
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0.34), transparent 72%);
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,0.34), transparent 72%);
+    opacity:.8;
+    margin-top:2px;
+  }
+  .car-glow{
+    position:absolute; left:50%; top:48%;
+    width:70%; height:70%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse at center, rgba(185,149,106,0.18), transparent 65%);
+    filter:blur(20px);
+    pointer-events:none;
+    z-index:-1;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:188px 0 0;
+    text-align:center;
+  }
+  .hero .eyebrow{ justify-content:center; margin-bottom:22px; }
+  .hero .eyebrow::after{
+    content:''; width:22px; height:1px; background:var(--brass); display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(44px, 7vw, 84px);
+    max-width:880px;
+    margin:0 auto;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--brass);
+    font-weight:400;
+  }
+  .hero p{
+    max-width:480px;
+    margin:26px auto 0;
+    color:var(--chrome-70);
+    font-size:15.5px;
+    line-height:1.7;
+  }
+  .hero-actions{
+    display:flex; gap:14px; justify-content:center;
+    margin-top:38px;
+  }
+  .hero .car-stage{
+    margin-top:84px;
+    max-width:880px;
+    margin-left:auto; margin-right:auto;
+    padding:0 20px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ position:relative; }
+  .section-pad{ padding:150px 0; }
+  .section-head{
+    max-width:620px;
+    margin-bottom:64px;
+  }
+  .section-head h2{ font-size:clamp(30px,4vw,46px); margin-top:18px; }
+  .section-head p{
+    color:var(--chrome-70); font-size:15px; line-height:1.75; margin-top:18px; max-width:480px;
+  }
+  .center{ text-align:center; margin-left:auto; margin-right:auto; }
+
+  /* ---------- SERVICE CARDS ---------- */
+  .tiers{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media(max-width:880px){ .tiers{ grid-template-columns:1fr; } }
+  .tier{
+    background:var(--panel);
+    padding:48px 38px 42px;
+    position:relative;
+    transition:background .35s ease;
+  }
+  .tier:hover{ background:var(--panel-2); }
+  .tier .tier-icon{
+    width:84px; opacity:.92;
+    margin-bottom:34px;
+    transition:transform .4s ease;
+  }
+  .tier:hover .tier-icon{ transform:translateX(6px); }
+  .tier .tier-no{
+    font-size:11px; letter-spacing:0.18em; color:var(--brass); font-weight:600; text-transform:uppercase;
+  }
+  .tier h3{
+    font-size:24px; margin-top:14px; font-weight:500;
+  }
+  .tier .price{
+    font-family:'Fraunces', serif; font-size:34px; color:var(--brass);
+    margin-top:16px;
+  }
+  .tier .price sup{ font-size:14px; font-family:'Inter',sans-serif; color:var(--chrome-45); }
+  .tier p.desc{
+    color:var(--chrome-70); font-size:14px; line-height:1.75; margin-top:16px; min-height:78px;
+  }
+  .tier ul{
+    list-style:none; margin-top:22px; display:flex; flex-direction:column; gap:10px;
+  }
+  .tier li{
+    font-size:13px; color:var(--chrome-70); display:flex; align-items:center; gap:10px;
+  }
+  .tier li::before{
+    content:''; width:5px; height:5px; background:var(--brass); border-radius:50%; flex:none;
+  }
+  .tier .btn-ghost{ margin-top:30px; width:100%; justify-content:center; }
+  .tier.featured{ background:var(--panel-2); }
+  .tier.featured .tier-no::after{
+    content:'Most booked'; margin-left:10px; color:var(--chrome-45); font-weight:500; letter-spacing:0;
+    text-transform:none; font-size:11px;
+  }
+
+  /* ---------- CARE / FEATURES SPLIT ---------- */
+  .split{
+    display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+  }
+  @media(max-width:880px){ .split{ grid-template-columns:1fr; gap:56px; } }
+  .split .car-stage{ max-width:460px; }
+  .feature-list{ display:flex; flex-direction:column; gap:38px; margin-top:36px; }
+  .feature{ display:flex; gap:20px; }
+  .feature .num{
+    font-family:'Fraunces', serif; font-size:15px; color:var(--brass); flex:none;
+    width:36px; height:36px; border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .feature h4{ font-size:16px; font-weight:600; font-family:'Inter',sans-serif; }
+  .feature p{ color:var(--chrome-70); font-size:14px; line-height:1.7; margin-top:8px; max-width:360px; }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    background:linear-gradient(180deg, var(--panel-2), var(--black));
+    border:1px solid var(--line);
+    padding:90px 60px 0;
+    text-align:center;
+  }
+  .cta-banner h2{ font-size:clamp(30px,4.4vw,52px); max-width:560px; margin:18px auto 0; }
+  .cta-banner p{ color:var(--chrome-70); max-width:420px; margin:20px auto 0; font-size:15px; line-height:1.7; }
+  .cta-banner .hero-actions{ margin-top:34px; }
+  .cta-banner .car-stage{ margin-top:60px; max-width:760px; margin-left:auto; margin-right:auto; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:90px 0 40px;
+    margin-top:60px;
+  }
+  .footer-top{
+    display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:50px;
+  }
+  @media(max-width:760px){ .footer-top{ grid-template-columns:1fr 1fr; } }
+  .footer-brand .logo{ margin-bottom:16px; }
+  .footer-brand p{ color:var(--chrome-45); font-size:13.5px; line-height:1.75; max-width:280px; }
+  .footer-col h5{
+    font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--chrome-45); margin-bottom:20px; font-weight:600;
+  }
+  .footer-col a{
+    display:block; color:var(--chrome-70); font-size:14px; margin-bottom:14px; transition:color .2s;
+  }
+  .footer-col a:hover{ color:var(--brass); }
+  .footer-bottom{
+    margin-top:80px; padding-top:26px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    color:var(--chrome-45); font-size:12.5px;
+  }
+
+  /* ---------- BOOKING MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:300;
+    background:rgba(6,6,7,0.74);
+    backdrop-filter:blur(8px);
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+    opacity:0; visibility:hidden;
+    transition:opacity .3s ease, visibility 0s linear .3s;
+  }
+  .modal-overlay.open{
+    opacity:1; visibility:visible;
+    transition:opacity .3s ease, visibility 0s linear 0s;
+  }
+  .modal-panel{
+    width:100%; max-width:460px; max-height:86vh; overflow-y:auto;
+    background:var(--panel-2); border:1px solid var(--line); border-radius:6px;
+    padding:40px 38px 34px; position:relative;
+    transform:translateY(16px) scale(.98);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .modal-overlay.open .modal-panel{ transform:translateY(0) scale(1); }
+  .modal-close{
+    position:absolute; top:18px; right:18px; width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--line); background:transparent; color:var(--chrome-70);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:14px;
+    transition:border-color .2s, color .2s;
+  }
+  .modal-close:hover{ border-color:var(--brass); color:var(--brass); }
+  .modal-panel h3{ font-size:25px; padding-right:28px; }
+  .modal-sub{ color:var(--chrome-70); font-size:13.5px; margin-top:10px; line-height:1.65; }
+  .field{ margin-top:18px; }
+  .field label{
+    display:block; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--chrome-45); margin-bottom:8px; font-weight:600;
+  }
+  .field input, .field select, .field textarea{
+    width:100%; background:var(--black); border:1px solid var(--line); color:var(--chrome-100);
+    padding:11px 13px; font-family:'Inter', sans-serif; font-size:14px; border-radius:2px; outline:none;
+    transition:border-color .2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--brass); }
+  .field textarea{ resize:vertical; min-height:74px; }
+  .field select{ cursor:pointer; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .modal-form .btn{ width:100%; justify-content:center; margin-top:24px; }
+  .modal-fineprint{
+    font-size:11.5px; color:var(--chrome-45); margin-top:16px; text-align:center; line-height:1.65;
+  }
+  .modal-fineprint a{ color:var(--brass); }
+  .modal-success{ display:none; text-align:center; padding:10px 0 4px; }
+  .modal-success.show{ display:block; }
+  .modal-success .check{
+    width:52px; height:52px; border-radius:50%; border:1px solid var(--brass); color:var(--brass);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:20px;
+  }
+  .modal-success p{ color:var(--chrome-70); font-size:13.5px; line-height:1.7; margin-top:12px; }
+  .modal-success p a{ color:var(--brass); }
+  .modal-success .btn-ghost{ margin-top:24px; width:100%; justify-content:center; }
+  body.modal-open{ overflow:hidden; }
+
+  #vehicleField{ position:relative; }
+  .vehicle-suggestions{
+    list-style:none;
+    position:absolute;
+    top:calc(100% + 4px);
+    left:0; right:0;
+    background:var(--black);
+    border:1px solid var(--line);
+    border-radius:2px;
+    max-height:216px;
+    overflow-y:auto;
+    z-index:20;
+    display:none;
+  }
+  .vehicle-suggestions.open{ display:block; }
+  .vehicle-suggestions li{
+    padding:10px 13px;
+    font-size:13.5px;
+    color:var(--chrome-70);
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .vehicle-suggestions li .veh-make{ color:var(--chrome-45); font-size:11.5px; letter-spacing:0.04em; }
+  .vehicle-suggestions li:hover,
+  .vehicle-suggestions li.active{
+    background:var(--brass-soft); color:var(--chrome-100);
+  }
+  .vehicle-suggestions li.empty{
+    color:var(--chrome-45); cursor:default;
+  }
+  .vehicle-suggestions li.empty:hover{ background:transparent; }
+
+  @media(max-width:480px){
+    .field-row{ grid-template-columns:1fr; }
+    .modal-panel{ padding:32px 22px 28px; }
+  }
+
+  /* ---------- REVEAL ---------- */
+  [data-reveal]{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease; }
+  [data-reveal].in{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    [data-reveal]{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  @media(max-width:680px){
+    .wrap{ padding:0 22px; }
+    .hero{ padding-top:140px; }
+    .nav-links{ display:none; }
+    .section-pad{ padding:100px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <div class="logo">Detail<span>Dudes</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#care">Approach</a>
+      <a href="#book">Pricing</a>
+      <a href="#footer">Contact</a>
+    </div>
+    <button type="button" class="btn nav-cta" data-open-booking>Book a detail</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Mobile &amp; in-studio detailing</div>
+      <h1>Luxury car<br><em>detailing</em>, redefined.</h1>
+      <p>Pure distinction in every detail — where luxury, elegance, and flawless detailing meet.</p>
+      <div class="hero-actions">
+        <button type="button" class="btn" data-open-booking>Book your detail</button>
+        <a href="#services" class="btn btn-ghost">See pricing</a>
+      </div>
+
+      <div class="car-stage" data-reveal>
+        <div class="car-glow"></div>
+        <svg class="car-art" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="chrome1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3a3a3d"/>
+              <stop offset="35%" stop-color="#0c0c0d"/>
+              <stop offset="55%" stop-color="#b9956a" stop-opacity="0.35"/>
+              <stop offset="75%" stop-color="#0c0c0d"/>
+              <stop offset="100%" stop-color="#2b2b2e"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#chrome1)" d="M40 195 C 50 150, 100 140, 150 132 C 210 100, 290 70, 380 66 C 460 62, 520 70, 580 92 C 650 86, 720 92, 780 118 C 820 132, 850 150, 862 178 L 862 200 L 820 200 C 818 178, 798 162, 776 162 C 754 162, 736 178, 734 200 L 250 200 C 248 178, 230 162, 208 162 C 186 162, 168 178, 166 200 L 40 200 Z"/>
+          <path fill="#0a0a0b" opacity="0.9" d="M205 130 C 250 96, 320 74, 390 72 C 450 70, 500 78, 545 96 C 500 100, 440 100, 390 104 C 330 108, 270 116, 205 130 Z"/>
+          <circle cx="208" cy="200" r="40" fill="#050505" stroke="#9a9a96" stroke-width="2"/>
+          <circle cx="208" cy="200" r="16" fill="#3a3a3a"/>
+          <circle cx="776" cy="200" r="40" fill="#050505" stroke="#9a9a96" stroke-width="2"/>
+          <circle cx="776" cy="200" r="16" fill="#3a3a3a"/>
+          <line x1="120" y1="148" x2="700" y2="148" stroke="#b9956a" stroke-opacity="0.45" stroke-width="1"/>
+          <g transform="translate(818,140)" opacity="0.95">
+            <circle r="14" fill="#0a0a0b" stroke="#f4f3ef" stroke-width="1.6"/>
+            <line x1="0" y1="-14" x2="0" y2="0" stroke="#f4f3ef" stroke-width="1.6"/>
+            <line x1="0" y1="0" x2="-12.1" y2="7" stroke="#f4f3ef" stroke-width="1.6"/>
+            <line x1="0" y1="0" x2="12.1" y2="7" stroke="#f4f3ef" stroke-width="1.6"/>
+          </g>
+        </svg>
+        <svg class="car-reflection" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="chrome2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3a3a3d"/>
+              <stop offset="35%" stop-color="#0c0c0d"/>
+              <stop offset="55%" stop-color="#b9956a" stop-opacity="0.35"/>
+              <stop offset="75%" stop-color="#0c0c0d"/>
+              <stop offset="100%" stop-color="#2b2b2e"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#chrome2)" d="M40 195 C 50 150, 100 140, 150 132 C 210 100, 290 70, 380 66 C 460 62, 520 70, 580 92 C 650 86, 720 92, 780 118 C 820 132, 850 150, 862 178 L 862 200 L 820 200 C 818 178, 798 162, 776 162 C 754 162, 736 178, 734 200 L 250 200 C 248 178, 230 162, 208 162 C 186 162, 168 178, 166 200 L 40 200 Z"/>
+          <circle cx="208" cy="200" r="40" fill="#050505" stroke="#9a9a96" stroke-width="2"/>
+          <circle cx="776" cy="200" r="40" fill="#050505" stroke="#9a9a96" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOVE IN EVERY DETAIL / SERVICES -->
+  <section id="services" class="section-pad">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow center" style="justify-content:center;">What we offer</div>
+        <h2>Love in Every Detail</h2>
+        <p class="center">Immerse your vehicle in luxury with our bespoke detailing packages, tailored to your car's unique needs — from a quick refresh to a complete restoration of shine.</p>
+      </div>
+
+      <div class="tiers">
+        <div class="tier" data-reveal>
+          <svg class="tier-icon" viewBox="0 0 84 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 22 C6 14 18 10 28 9 C40 8 50 11 58 16 C66 15 74 17 78 21 L78 25 L70 25 C70 21 66 18 62 18 C58 18 55 21 55 25 L25 25 C25 21 22 18 18 18 C14 18 11 21 11 25 L4 25 Z" stroke="#b9956a" stroke-width="1.2"/>
+            <circle cx="18" cy="25" r="4" stroke="#b9956a" stroke-width="1.2"/>
+            <circle cx="62" cy="25" r="4" stroke="#b9956a" stroke-width="1.2"/>
+          </svg>
+          <div class="tier-no">01 — Refresh</div>
+          <h3>Entry level detail</h3>
+          <div class="price">$129<sup>/visit</sup></div>
+          <p class="desc">Treat your car to an exterior wash and interior vacuum through our rapid refresh application.</p>
+          <ul>
+            <li>Hand wash &amp; dry</li>
+            <li>Interior vacuum</li>
+            <li>Tyre shine &amp; trim dress</li>
+          </ul>
+          <button type="button" class="btn btn-ghost" data-open-booking data-service="Entry level detail – $129">Choose Refresh</button>
+        </div>
+
+        <div class="tier featured" data-reveal>
+          <svg class="tier-icon" viewBox="0 0 84 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 22 C6 14 18 10 28 9 C40 8 50 11 58 16 C66 15 74 17 78 21 L78 25 L70 25 C70 21 66 18 62 18 C58 18 55 21 55 25 L25 25 C25 21 22 18 18 18 C14 18 11 21 11 25 L4 25 Z" stroke="#b9956a" stroke-width="1.2"/>
+            <circle cx="18" cy="25" r="4" stroke="#b9956a" stroke-width="1.2"/>
+            <circle cx="62" cy="25" r="4" stroke="#b9956a" stroke-width="1.2"/>
+          </svg>
+          <div class="tier-no">02 — Maintain</div>
+          <h3>Maintenance detail</h3>
+          <div class="price">$249<sup>/visit</sup></div>
+          <p class="desc">Keep your car's paintwork protected with a clay bar treatment and premium wax application.</p>
+          <ul>
+            <li>Everything in Refresh</li>
+            <li>Clay bar decontamination</li>
+            <li>Carnauba wax sealant</li>
+            <li>Interior deep clean</li>
+          </ul>
+          <button type="button" class="btn" data-open-booking data-service="Maintenance detail – $249">Choose Maintain</button>
+        </div>
+
+        <div class="tier" data-reveal>
+          <svg class="tier-icon" viewBox="0 0 84 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 22 C6 14 18 10 28 9 C40 8 50 11 58 16 C66 15 74 17 78 21 L78 25 L70 25 C70 21 66 18 62 18 C58 18 55 21 55 25 L25 25 C25 21 22 18 18 18 C14 18 11 21 11 25 L4 25 Z" stroke="#b9956a" stroke-width="1.2"/>
+            <circle cx="18" cy="25" r="4" stroke="#b9956a" stroke-width="1.2"/>
+            <circle cx="62" cy="25" r="4" stroke="#b9956a" stroke-width="1.2"/>
+          </svg>
+          <div class="tier-no">03 — Restore</div>
+          <h3>Full detail</h3>
+          <div class="price">$499<sup>/visit</sup></div>
+          <p class="desc">Pamper your vehicle with a complete deep cleaning treatment, leaving every surface immaculate.</p>
+          <ul>
+            <li>Everything in Maintain</li>
+            <li>Paint correction pass</li>
+            <li>Ceramic coating boost</li>
+            <li>Leather &amp; fabric protection</li>
+          </ul>
+          <button type="button" class="btn btn-ghost" data-open-booking data-service="Full detail – $499">Choose Restore</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARE / FEATURES -->
+  <section id="care" class="section-pad" style="background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="split">
+        <div data-reveal>
+          <div class="eyebrow">Why owners choose us</div>
+          <h2 style="margin-top:18px; font-size:clamp(28px,3.6vw,40px);">We will take<br>good care of your car</h2>
+
+          <div class="feature-list">
+            <div class="feature">
+              <div class="num">01</div>
+              <div>
+                <h4>Precise work</h4>
+                <p>We uphold the highest standards of professionalism when servicing your vehicle, panel by panel.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="num">02</div>
+              <div>
+                <h4>Premium products &amp; services</h4>
+                <p>Trust your car's body and interior with the premium-grade sealants and tools our process is built on.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="num">03</div>
+              <div>
+                <h4>High-level security &amp; privacy</h4>
+                <p>Rest assured your vehicle is in safe, insured hands from the moment it arrives to the moment it leaves.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="car-stage" data-reveal>
+          <div class="car-glow"></div>
+          <svg class="car-art" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+            <path fill="url(#chrome1)" d="M40 195 C 50 150, 100 140, 150 132 C 210 100, 290 70, 380 66 C 460 62, 520 70, 580 92 C 650 86, 720 92, 780 118 C 820 132, 850 150, 862 178 L 862 200 L 820 200 C 818 178, 798 162, 776 162 C 754 162, 736 178, 734 200 L 250 200 C 248 178, 230 162, 208 162 C 186 162, 168 178, 166 200 L 40 200 Z"/>
+            <path fill="#0a0a0b" opacity="0.9" d="M205 130 C 250 96, 320 74, 390 72 C 450 70, 500 78, 545 96 C 500 100, 440 100, 390 104 C 330 108, 270 116, 205 130 Z"/>
+            <circle cx="208" cy="200" r="40" fill="#050505" stroke="#9a9a96" stroke-width="2"/>
+            <circle cx="208" cy="200" r="16" fill="#3a3a3a"/>
+            <circle cx="776" cy="200" r="40" fill="#050505" stroke="#9a9a96" stroke-width="2"/>
+            <circle cx="776" cy="200" r="16" fill="#3a3a3a"/>
+          </svg>
+          <svg class="car-reflection" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+            <path fill="url(#chrome2)" d="M40 195 C 50 150, 100 140, 150 132 C 210 100, 290 70, 380 66 C 460 62, 520 70, 580 92 C 650 86, 720 92, 780 118 C 820 132, 850 150, 862 178 L 862 200 L 820 200 C 818 178, 798 162, 776 162 C 754 162, 736 178, 734 200 L 250 200 C 248 178, 230 162, 208 162 C 186 162, 168 178, 166 200 L 40 200 Z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK CTA -->
+  <section id="book" class="section-pad">
+    <div class="wrap">
+      <div class="cta-banner" data-reveal>
+        <div class="eyebrow center" style="justify-content:center;">Limited weekly slots</div>
+        <h2>Book your luxury<br>car detailing today</h2>
+        <p>Mobile service across the metro area, or visit our studio bay for the full restoration experience.</p>
+        <div class="hero-actions">
+          <button type="button" class="btn" data-open-booking>Get a quote</button>
+          <button type="button" class="btn btn-ghost" data-open-booking>Call the studio</button>
+        </div>
+        <div class="car-stage">
+          <svg class="car-art" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="chrome3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#46464a"/>
+                <stop offset="30%" stop-color="#0c0c0d"/>
+                <stop offset="55%" stop-color="#b9956a" stop-opacity="0.4"/>
+                <stop offset="78%" stop-color="#0c0c0d"/>
+                <stop offset="100%" stop-color="#2b2b2e"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#chrome3)" d="M20 215 C 35 160, 95 148, 150 138 C 215 100, 305 64, 400 60 C 485 56, 550 66, 615 90 C 690 84, 765 92, 828 122 C 862 138, 878 158, 880 195 L 880 220 L 828 220 C 826 192, 802 174, 776 174 C 750 174, 730 192, 728 220 L 250 220 C 248 192, 226 174, 200 174 C 174 174, 154 192, 152 220 L 20 220 Z"/>
+            <path fill="#0a0a0b" opacity="0.9" d="M210 142 C 262 102, 340 76, 418 72 C 486 68, 542 78, 592 98 C 540 102, 470 102, 412 108 C 342 114, 272 126, 210 142 Z"/>
+            <circle cx="200" cy="220" r="46" fill="#050505" stroke="#9a9a96" stroke-width="2"/>
+            <circle cx="200" cy="220" r="18" fill="#3a3a3a"/>
+            <circle cx="776" cy="220" r="46" fill="#050505" stroke="#9a9a96" stroke-width="2"/>
+            <circle cx="776" cy="220" r="18" fill="#3a3a3a"/>
+            <line x1="100" y1="160" x2="780" y2="160" stroke="#b9956a" stroke-opacity="0.5" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Detail<span>Dudes</span></div>
+        <p>Pure distinction in every detail — premium car care for owners who notice the difference.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Website</h5>
+        <a href="#services">Services</a>
+        <a href="#services">Pricing</a>
+        <a href="#care">About</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="#" data-open-booking>Get a quote</a>
+        <a href="#" data-open-booking>Contact form</a>
+        <a href="mailto:SircoAngelo@gmail.com">Email us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Social media</h5>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Youtube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Detail Dudes. All rights reserved.</span>
+      <span>Designed for owners who notice the difference.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Close">✕</button>
+
+    <div id="modalFormWrap">
+      <h3 id="modalTitle">Get in touch</h3>
+      <p class="modal-sub">Tell us about your car and we'll confirm a time — usually within one business day.</p>
+
+      <form class="modal-form" id="bookingForm">
+        <div class="field">
+          <label for="bf-name">Full name</label>
+          <input type="text" id="bf-name" name="name" required placeholder="Jordan Avery">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="bf-email">Email</label>
+            <input type="email" id="bf-email" name="email" required placeholder="you@email.com">
+          </div>
+          <div class="field">
+            <label for="bf-phone">Phone</label>
+            <input type="tel" id="bf-phone" name="phone" placeholder="(555) 123-4567">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="bf-service">Service</label>
+            <select id="bf-service" name="service">
+              <option value="General inquiry">General inquiry</option>
+              <option value="Entry level detail – $129">Entry level detail — $129</option>
+              <option value="Maintenance detail – $249">Maintenance detail — $249</option>
+              <option value="Full detail – $499">Full detail — $499</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="bf-date">Preferred date</label>
+            <input type="date" id="bf-date" name="date">
+          </div>
+        </div>
+        <div class="field" id="vehicleField">
+          <label for="bf-vehicle">Vehicle</label>
+          <input type="text" id="bf-vehicle" name="vehicle" placeholder="Start typing a make or model — e.g. Porsche 911" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="vehicleSuggestions" role="combobox">
+          <ul class="vehicle-suggestions" id="vehicleSuggestions" role="listbox" aria-label="Matching vehicles"></ul>
+        </div>
+        <div class="field">
+          <label for="bf-message">Message</label>
+          <textarea id="bf-message" name="message" placeholder="Anything our detailer should know"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send request</button>
+        <p class="modal-fineprint">Sending opens an email to our detailer with your details. Prefer to write directly? <a href="mailto:SircoAngelo@gmail.com">SircoAngelo@gmail.com</a></p>
+      </form>
+    </div>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="check">✓</div>
+      <h3>Request ready to send</h3>
+      <p id="modalSuccessText">Thanks — we've opened an email to our detailer with your details. If nothing opened, write to us directly at <a href="mailto:SircoAngelo@gmail.com">SircoAngelo@gmail.com</a>.</p>
+      <button type="button" class="btn btn-ghost" id="modalReset">Send another request</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 24);
+  });
+
+  const reveals = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => io.observe(el));
+
+  /* ---------- BOOKING MODAL ---------- */
+  const modal = document.getElementById('bookingModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalReset = document.getElementById('modalReset');
+  const formWrap = document.getElementById('modalFormWrap');
+  const successWrap = document.getElementById('modalSuccess');
+  const bookingForm = document.getElementById('bookingForm');
+  const serviceField = document.getElementById('bf-service');
+  let lastFocused = null;
+
+  function openModal(service){
+    lastFocused = document.activeElement;
+    if(service){ serviceField.value = service; }
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    if(typeof closeVehicleSuggestions === 'function'){ closeVehicleSuggestions(); }
+    setTimeout(() => document.getElementById('bf-name').focus(), 250);
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if(lastFocused){ lastFocused.focus(); }
+  }
+
+  document.querySelectorAll('[data-open-booking]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(el.getAttribute('data-service'));
+    });
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if(e.target === modal){ closeModal(); } });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && modal.classList.contains('open')){ closeModal(); }
+  });
+
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(bookingForm).entries());
+
+    const subject = `Booking request — ${data.service}`;
+    const bodyLines = [
+      `Name: ${data.name}`,
+      `Email: ${data.email}`,
+      data.phone ? `Phone: ${data.phone}` : null,
+      `Service: ${data.service}`,
+      data.date ? `Preferred date: ${data.date}` : null,
+      data.vehicle ? `Vehicle: ${data.vehicle}` : null,
+      data.message ? `Message: ${data.message}` : null
+    ].filter(Boolean);
+
+    const mailto = `mailto:SircoAngelo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+
+    document.getElementById('modalSuccessText').innerHTML =
+      `Thanks${data.name ? ', ' + data.name.split(' ')[0] : ''} — we've opened an email to our detailer with your details. If nothing opened, write to us directly at <a href="mailto:SircoAngelo@gmail.com">SircoAngelo@gmail.com</a>.`;
+
+    formWrap.style.display = 'none';
+    successWrap.classList.add('show');
+  });
+
+  modalReset.addEventListener('click', () => {
+    bookingForm.reset();
+    successWrap.classList.remove('show');
+    formWrap.style.display = '';
+    closeVehicleSuggestions();
+    document.getElementById('bf-name').focus();
+  });
+
+  /* ---------- VEHICLE SEARCH (make & model) ---------- */
+  const CAR_DATA = {
+    "Acura": ["ILX","Integra","TLX","RDX","MDX","ZDX","NSX"],
+    "Alfa Romeo": ["Giulia","Stelvio","Tonale"],
+    "Aston Martin": ["Vantage","DB12","DBX","DBS"],
+    "Audi": ["A3","A4","A5","A6","A7","A8","Q3","Q5","Q7","Q8","e-tron GT","R8","RS6","TT"],
+    "Bentley": ["Continental GT","Flying Spur","Bentayga"],
+    "BMW": ["2 Series","3 Series","4 Series","5 Series","7 Series","X1","X3","X5","X7","M3","M4","M5","i4","iX"],
+    "Bugatti": ["Chiron","Veyron"],
+    "Buick": ["Encore","Envision","Enclave"],
+    "Cadillac": ["CT4","CT5","XT4","XT5","XT6","Escalade","Lyriq"],
+    "Chevrolet": ["Spark","Malibu","Camaro","Corvette","Equinox","Trax","Trailblazer","Blazer","Traverse","Tahoe","Suburban","Silverado","Bolt EV"],
+    "Chrysler": ["300","Pacifica"],
+    "Dodge": ["Charger","Challenger","Durango","Hornet"],
+    "Ferrari": ["296","SF90","Roma","Portofino","812","Purosangue"],
+    "Fiat": ["500","500X"],
+    "Ford": ["Fiesta","Focus","Mustang","Mustang Mach-E","Escape","Edge","Explorer","Expedition","Bronco","Bronco Sport","Ranger","F-150","F-250","Maverick"],
+    "Genesis": ["G70","G80","G90","GV60","GV70","GV80"],
+    "GMC": ["Terrain","Acadia","Yukon","Sierra","Canyon","Hummer EV"],
+    "Honda": ["Civic","Accord","Insight","HR-V","CR-V","Passport","Pilot","Ridgeline","Odyssey","Fit"],
+    "Hyundai": ["Accent","Elantra","Sonata","Veloster","Venue","Kona","Tucson","Santa Fe","Palisade","Ioniq 5","Ioniq 6"],
+    "Infiniti": ["Q50","Q60","QX50","QX60","QX80"],
+    "Jaguar": ["XE","XF","F-Type","F-Pace","E-Pace","I-Pace"],
+    "Jeep": ["Renegade","Compass","Cherokee","Grand Cherokee","Wrangler","Gladiator","Wagoneer"],
+    "Kia": ["Rio","Forte","K5","Stinger","Soul","Seltos","Sportage","Sorento","Telluride","EV6","EV9"],
+    "Lamborghini": ["Huracán","Revuelto","Urus"],
+    "Land Rover": ["Discovery","Discovery Sport","Range Rover","Range Rover Sport","Range Rover Evoque","Range Rover Velar","Defender"],
+    "Lexus": ["IS","ES","GS","LS","UX","NX","RX","GX","LX","RC","LC"],
+    "Lincoln": ["Corsair","Nautilus","Aviator","Navigator"],
+    "Lotus": ["Emira","Evija","Eletre"],
+    "Maserati": ["Ghibli","Quattroporte","Levante","Grecale","MC20"],
+    "Mazda": ["Mazda3","Mazda6","CX-3","CX-5","CX-9","CX-30","CX-50","CX-90","MX-5 Miata"],
+    "McLaren": ["570S","720S","Artura","GT","750S"],
+    "Mercedes-Benz": ["A-Class","A35 AMG","A45 AMG","C-Class","C43 AMG","C63 AMG","E-Class","E53 AMG","E63 AMG","S-Class","S63 AMG","CLA","CLA45 AMG","CLS","GLA","GLA35 AMG","GLB","GLC","GLC43 AMG","GLC63 AMG","GLE","GLE53 AMG","GLE63 AMG","GLS","GLS63 AMG","G-Class","G63 AMG","AMG GT","AMG GT63","EQS","EQE"],
+    "MINI": ["Cooper","Cooper Clubman","Cooper Countryman"],
+    "Mitsubishi": ["Mirage","Outlander","Outlander Sport","Eclipse Cross"],
+    "Nissan": ["Versa","Sentra","Altima","Maxima","Z","370Z","Kicks","Rogue","Murano","Pathfinder","Armada","Frontier","Titan","Leaf","Ariya"],
+    "Polestar": ["Polestar 2","Polestar 3","Polestar 4"],
+    "Porsche": ["718 Boxster","718 Cayman","911","Taycan","Panamera","Macan","Cayenne"],
+    "Ram": ["1500","2500","3500","ProMaster"],
+    "Rivian": ["R1T","R1S"],
+    "Rolls-Royce": ["Ghost","Phantom","Wraith","Cullinan","Spectre"],
+    "Subaru": ["Impreza","Legacy","WRX","BRZ","Crosstrek","Forester","Outback","Ascent","Solterra"],
+    "Tesla": ["Model S","Model 3","Model X","Model Y","Cybertruck"],
+    "Toyota": ["Corolla","Camry","Crown","Prius","GR86","Supra","C-HR","RAV4","Venza","Highlander","4Runner","Sequoia","Land Cruiser","Tacoma","Tundra","Sienna"],
+    "Volkswagen": ["Jetta","Golf GTI","Golf R","Arteon","Taos","Tiguan","Atlas","ID.4"],
+    "Volvo": ["S60","S90","V60","XC40","XC60","XC90","EX30","EX90"]
+  };
+  const VEHICLES = Object.entries(CAR_DATA).flatMap(([make, models]) =>
+    models.map(model => ({ make, model, label: `${make} ${model}` }))
+  );
+
+  const vehicleField = document.getElementById('vehicleField');
+  const vehicleInput = document.getElementById('bf-vehicle');
+  const vehicleList = document.getElementById('vehicleSuggestions');
+  let activeIndex = -1;
+
+  function closeVehicleSuggestions(){
+    vehicleList.classList.remove('open');
+    vehicleList.innerHTML = '';
+    vehicleInput.setAttribute('aria-expanded', 'false');
+    vehicleInput.removeAttribute('aria-activedescendant');
+    activeIndex = -1;
+  }
+
+  function setActive(items){
+    items.forEach((it, idx) => it.classList.toggle('active', idx === activeIndex));
+    if(activeIndex >= 0){
+      vehicleInput.setAttribute('aria-activedescendant', items[activeIndex].id);
+      items[activeIndex].scrollIntoView({ block: 'nearest' });
+    } else {
+      vehicleInput.removeAttribute('aria-activedescendant');
+    }
+  }
+
+  function selectVehicle(label){
+    vehicleInput.value = label;
+    closeVehicleSuggestions();
+  }
+
+  vehicleInput.addEventListener('input', () => {
+    const q = vehicleInput.value.trim().toLowerCase();
+    activeIndex = -1;
+    if(!q){ closeVehicleSuggestions(); return; }
+
+    const matches = VEHICLES.filter(v => v.label.toLowerCase().includes(q)).slice(0, 8);
+    vehicleList.innerHTML = '';
+
+    if(!matches.length){
+      const li = document.createElement('li');
+      li.className = 'empty';
+      li.textContent = 'No match — you can still type your vehicle in manually';
+      vehicleList.appendChild(li);
+      vehicleList.classList.add('open');
+      vehicleInput.setAttribute('aria-expanded', 'true');
+      return;
+    }
+
+    matches.forEach((v, i) => {
+      const li = document.createElement('li');
+      li.setAttribute('role', 'option');
+      li.id = `veh-opt-${i}`;
+      li.dataset.value = v.label;
+      li.innerHTML = `<span>${v.model}</span><span class="veh-make">${v.make}</span>`;
+      vehicleList.appendChild(li);
+    });
+    vehicleList.classList.add('open');
+    vehicleInput.setAttribute('aria-expanded', 'true');
+  });
+
+  vehicleInput.addEventListener('keydown', (e) => {
+    const items = vehicleList.querySelectorAll('li[data-value]');
+    if(!items.length) return;
+    if(e.key === 'ArrowDown'){
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, items.length - 1);
+      setActive(items);
+    } else if(e.key === 'ArrowUp'){
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      setActive(items);
+    } else if(e.key === 'Enter'){
+      if(activeIndex >= 0){
+        e.preventDefault();
+        selectVehicle(items[activeIndex].dataset.value);
+      }
+    } else if(e.key === 'Escape'){
+      closeVehicleSuggestions();
+    }
+  });
+
+  vehicleList.addEventListener('mousedown', (e) => {
+    const li = e.target.closest('li[data-value]');
+    if(!li) return;
+    e.preventDefault();
+    selectVehicle(li.dataset.value);
+  });
+
+  document.addEventListener('click', (e) => {
+    if(!vehicleField.contains(e.target)){ closeVehicleSuggestions(); }
+  });
+</script>
+
+</body>
+</html>
